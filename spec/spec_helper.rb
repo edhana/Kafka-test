@@ -1,6 +1,6 @@
 $LOAD_PATH.unshift File.expand_path('../../src', __FILE__)
 
-require File.expand_path '../../src/buzz_producer.rb', __FILE__
+Dir[__dir__ + "/../src/*.rb"].each { |file| require file }
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
