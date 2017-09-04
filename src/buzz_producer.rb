@@ -1,0 +1,2 @@
+class BuzzProducer
+end
