@@ -1,4 +1,5 @@
 $LOAD_PATH.unshift File.expand_path('../../src', __FILE__)
+require 'factory_girl'
 
 Dir[__dir__ + '/../src/*.rb'].each { |file| require file }
 
@@ -12,6 +13,13 @@ RSpec.configure do |config|
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
+  end
+
+  # FactoryGirl configuration
+  config.include FactoryGirl::Syntax::Methods
+
+  config.before(:suite) do
+    FactoryGirl.find_definitions
   end
 
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will

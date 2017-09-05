@@ -12,6 +12,8 @@ class BuzzProducer
 
   attr_reader :kafka
 
+  protected :kafka
+
   def initialize
     @kafka = Kafka.new(
       seed_brokers: ["#{Properties::BROKER_IP}:#{Properties::BROKER_PORT}"]

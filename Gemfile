@@ -5,6 +5,7 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem 'ruby-kafka', '~> 0.4.1'
 gem 'awesome_print', '~> 1.8'
+gem 'factory_girl', '~> 4.8'
 
 group :test, :development do
   gem 'rspec', '~> 3.6'
