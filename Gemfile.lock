@@ -68,7 +68,7 @@ DEPENDENCIES
   pry (~> 0.10.4)
   pry-awesome_print (~> 9.6, >= 9.6.11)
   rspec (~> 3.6)
-  ruby-kafka
+  ruby-kafka (~> 0.4.1)
 
 BUNDLED WITH
    1.15.4
