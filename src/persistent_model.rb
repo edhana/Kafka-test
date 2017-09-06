@@ -1,6 +1,6 @@
 require 'kafka'
 require 'json'
-require 'logger'
+require 'application_helper'
 
 module Properties
   BROKER_IP = '127.0.0.1'.freeze
@@ -8,33 +8,27 @@ module Properties
   BASE_TOPIC = 'first_topic'.freeze
 end
 
+# Base module for kafka persistence configuration
+module KafkaPersistence
+  KAFKA_BROKER = Kafka.new(seed_brokers:
+      ["#{Properties::BROKER_IP}:#{Properties::BROKER_PORT}"]).freeze
+  PRODUCER = KAFKA_BROKER.producer.freeze
+
+  # TODO: Create async producer
+  def self.push_data(topic, data)
+    PRODUCER.produce(data, topic: topic)
+    PRODUCER.deliver_messages
+    PRODUCER.shutdown
+  end
+end
+
 # base class to tall kafka persistent models
 class PersistentModel
   attr_accessor :topic
-  attr_reader :kafka
-
-  protected :kafka
-  APP_LOGGER = Logger.new(STDOUT)
-
-  def initialize
-    APP_LOGGER.level = Logger::INFO
-
-    @kafka = Kafka.new(seed_brokers:
-      ["#{Properties::BROKER_IP}:#{Properties::BROKER_PORT}"])
-
-    APP_LOGGER.info("Teste do Logger")
-
-    # TODO: Create an asyncproduct
-    @producer = @kafka.producer
-  end
 
   def save!
     data = JSON.dump to_json
-    @producer.produce(data, topic: @topic.to_s)
-    @producer.deliver_messages
-
-    # TODO: this is really necessary for a permanen producer
-    @producer.shutdown
+    KafkaPersistence::push_data(@topic, data)
     data
   end
 end
