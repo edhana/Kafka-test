@@ -1,15 +1,10 @@
-require 'basic_model'
+require 'category'
 
 # Model representation of an item
-class Item < BasicModel
+class Item
   attr_accessor :category, :name, :price
-
-  # TODO: Fix all attributes
-  def initialize
-    @category = "Hamburger"
-  end
-
+  
   def to_json
-    { category: @category, name: @name, price: @price }
+    { category: @category.to_json, name: @name, price: @price }
   end
 end
