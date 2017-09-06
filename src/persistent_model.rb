@@ -28,7 +28,7 @@ class PersistentModel
 
   def save!
     data = JSON.dump to_json
-    KafkaPersistence::push_data(@topic, data)
+    KafkaPersistence.push_data(@topic, data)
     data
   end
 end

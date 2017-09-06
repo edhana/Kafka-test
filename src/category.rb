@@ -1,3 +1,4 @@
+# Dish category class
 class Category
   attr_accessor :name
   def to_json

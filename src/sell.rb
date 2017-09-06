@@ -12,7 +12,7 @@ class Sell < PersistentModel
   end
 
   def to_json
-    a = {
+    {
       sold_at: @sold_at,
       items: @items.map(&:to_json),
       total_bill: total?
