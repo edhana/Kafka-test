@@ -19,17 +19,32 @@ FactoryGirl.define do
   factory :bigmac, class: Item do
     skip_create
     category { FactoryGirl::build(:hamburger) }
-    name "bigmac" # TODO: Colocar o Faker aqui
+    name "bigmac"
     price 10.35
   end
 
-  fix_items = []
-  fix_items << FactoryGirl::build(:bigmac)
-  
+  factory :cheddar, class: Item do
+    category { FactoryGirl::build(:hamburger) }
+    name "cheddar"
+    price 10.35
+  end
+
+  factory :sandwich, class: Item do
+    category { FactoryGirl::build(:hamburger) }
+    name { ["cheddar", "mvfish", "bigmac", "mcchicken"].sample }
+    price { [10.35, 33.2, 1.25].sample }
+  end
+
   factory :singlesell207, class: Sell do
     topic "loja207n_1"
     sold_at base_time
-    items fix_items
+    items [FactoryGirl::build(:bigmac)]
     total_bill 132.02
+  end
+
+  factory :multiitem4, class: Sell do
+    topic "loja207n_1"
+    sold_at base_time
+    items [FactoryGirl::build_list(:sandwich, 4)]
   end
 end
