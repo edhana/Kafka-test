@@ -1,9 +1,9 @@
 require 'spec_helper'
 require 'kafka'
 
-describe BuzzProducer do
-  it 'creates a basic BuzzProducer' do
-    producer = BuzzProducer.new({
+describe BuzzSeeder do
+  it 'creates a basic BuzzSeeder' do
+    producer = BuzzSeeder.new({
       ammount: 100,
       distribution: {
         hamburger: 30,

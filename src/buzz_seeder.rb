@@ -3,7 +3,7 @@ require 'application_helper'
 require 'persistent_model'
 
 # Application entry point
-class BuzzProducer < PersistentModel
+class BuzzSeeder < PersistentModel
 
   def initialize(configuration)
     #TODO: Configuration is a hash with the system characteristics
