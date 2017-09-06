@@ -18,9 +18,9 @@ RSpec.configure do |config|
   # FactoryGirl configuration
   config.include FactoryGirl::Syntax::Methods
 
-  config.before(:suite) do
-    FactoryGirl.find_definitions
-  end
+  # config.before(:suite) do
+  #   FactoryGirl.find_definitions
+  # end
 
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
   # have no way to turn it off -- the option exists only for backwards

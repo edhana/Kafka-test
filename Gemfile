@@ -11,5 +11,6 @@ group :test, :development do
   gem 'rspec', '~> 3.6'
   gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
   gem 'pry', '~> 0.10.4'
+  gem 'pry-byebug', '~> 3.5'
   gem 'pry-awesome_print', '~> 9.6', '>= 9.6.11'
 end
