@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe Sell do
   it "should create a serializable sell with one item" do
