@@ -24,12 +24,8 @@ class PersistentModel
 
     APP_LOGGER.info("Teste do Logger")
 
-    # TODO: Create an asyncproducerj
+    # TODO: Create an asyncproduct
     @producer = @kafka.producer
-  end
-
-  def to_json
-    self.to_s
   end
 
   def save!

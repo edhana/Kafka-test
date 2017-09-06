@@ -1,22 +1,11 @@
 require 'kafka'
+require 'application_helper'
+require 'persistent_model'
 
-module Properties
-  BROKER_IP = '127.0.0.1'.freeze
-  BROKER_PORT = '9092'.freeze
-  BASE_TOPIC = 'first_topic'.freeze
-end
+# Application entry point
+class BuzzProducer < PersistentModel
 
-# Control the content production
-class BuzzProducer
-  extend Properties
-
-  attr_reader :kafka
-
-  protected :kafka
-
-  def initialize
-    @kafka = Kafka.new(
-      seed_brokers: ["#{Properties::BROKER_IP}:#{Properties::BROKER_PORT}"]
-    )
+  def initialize(configuration)
+    #TODO: Configuration is a hash with the system characteristics
   end
 end
