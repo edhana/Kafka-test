@@ -8,7 +8,7 @@ describe Sell do
   end
 
   it "should create a massive ammount of sells" do
-    sells = FactoryGirl.build_list(:multiitem4, 1000)
+    sells = FactoryGirl.create_list(:multiitem4, 100)
     expect(sells).not_to be_nil
   end
 end

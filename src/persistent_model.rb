@@ -20,6 +20,8 @@ module KafkaPersistence
     PRODUCER.deliver_messages
     PRODUCER.shutdown
   end
+
+  # TODO: Create consumer for test purpose
 end
 
 # base class to tall kafka persistent models

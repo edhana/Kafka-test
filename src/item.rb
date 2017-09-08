@@ -15,7 +15,7 @@ class Combo < Item
 
   def to_json
     hash = super
-    @subitems ||= {}
+    @subitems ||= []
     hash[:subitems] = @items.map(&:to_json)
     hash
   end
